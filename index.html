@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>シンプルサイト</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: #0f172a;
+        --panel: #111827;
+        --accent: #22c55e;
+        --text: #e5e7eb;
+        --muted: #94a3b8;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+        background: radial-gradient(circle at 20% 20%, #1f2937, #0b1224 45%),
+          radial-gradient(circle at 80% 30%, #172032, #0b1224 50%),
+          var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+      }
+
+      header {
+        padding: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+      }
+
+      .logo span {
+        color: var(--accent);
+      }
+
+      nav a {
+        color: var(--muted);
+        text-decoration: none;
+        margin-left: 18px;
+        font-weight: 600;
+        transition: color 0.2s ease;
+      }
+
+      nav a:hover {
+        color: var(--text);
+      }
+
+      main {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 24px 72px;
+      }
+
+      .hero {
+        padding: 72px 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 32px;
+        align-items: center;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(34, 197, 94, 0.12);
+        color: #bbf7d0;
+        font-weight: 700;
+        font-size: 13px;
+        letter-spacing: 0.3px;
+      }
+
+      h1 {
+        font-size: clamp(32px, 4vw, 46px);
+        margin: 16px 0 12px;
+        line-height: 1.2;
+      }
+
+      p.lead {
+        color: var(--muted);
+        font-size: 17px;
+        max-width: 600px;
+        margin-bottom: 24px;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 12px 18px;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: linear-gradient(120deg, #16a34a, #22c55e);
+        color: #0b1224;
+        font-weight: 800;
+        letter-spacing: 0.2px;
+        cursor: pointer;
+        text-decoration: none;
+        box-shadow: 0 10px 30px rgba(34, 197, 94, 0.35);
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 16px 40px rgba(34, 197, 94, 0.45);
+      }
+
+      .ghost {
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--text);
+        box-shadow: none;
+      }
+
+      .card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 14px;
+        padding: 24px;
+        backdrop-filter: blur(6px);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+      }
+
+      .note {
+        display: grid;
+        grid-template-columns: 48px 1fr;
+        gap: 16px;
+        align-items: center;
+        margin-top: 16px;
+      }
+
+      .note-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        background: rgba(34, 197, 94, 0.18);
+        color: #bbf7d0;
+        display: grid;
+        place-items: center;
+        font-size: 20px;
+        font-weight: 700;
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 18px;
+        margin-top: 22px;
+      }
+
+      .stat {
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 12px;
+        padding: 16px;
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      .stat strong {
+        display: block;
+        font-size: 26px;
+        margin-bottom: 4px;
+      }
+
+      .section-title {
+        margin: 12px 0;
+        font-size: 22px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 16px;
+      }
+
+      ul.bullet {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 10px;
+      }
+
+      ul.bullet li {
+        display: flex;
+        align-items: start;
+        gap: 10px;
+        color: var(--muted);
+      }
+
+      ul.bullet li span {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        background: rgba(34, 197, 94, 0.14);
+        color: #bbf7d0;
+        border-radius: 8px;
+        font-weight: 800;
+      }
+
+      footer {
+        padding: 24px;
+        text-align: center;
+        color: var(--muted);
+        font-size: 14px;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        background: rgba(0, 0, 0, 0.15);
+        margin-top: 24px;
+      }
+
+      @media (max-width: 600px) {
+        header {
+          flex-direction: column;
+          gap: 12px;
+        }
+
+        nav {
+          display: flex;
+          gap: 10px;
+        }
+
+        .actions {
+          flex-direction: column;
+          align-items: stretch;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <span>●</span>
+        シンプルサイト
+      </div>
+      <nav>
+        <a href="#features">特徴</a>
+        <a href="#about">ストーリー</a>
+        <a href="#contact">お問い合わせ</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <div class="badge">ミニマルで使いやすい</div>
+          <h1>必要な情報だけを、丁寧に届けるシンプルなウェブサイト</h1>
+          <p class="lead">
+            このページはサンプルとして作られた、軽くて美しいシングルページサイトです。シンプルな構成なので、個人用のポートフォリオやサービスの紹介ページにもすぐに転用できます。
+          </p>
+          <div class="actions">
+            <a class="btn" href="#features">特徴を見る</a>
+            <a class="btn ghost" href="#contact">相談する</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="note">
+            <div class="note-icon">✨</div>
+            <div>
+              <strong>好きな色に差し替え可能</strong>
+              <p style="margin: 6px 0 0; color: var(--muted)">
+                CSS変数を変更するだけで雰囲気を簡単に変えられます。ライト/ダークテーマにも自然に対応。
+              </p>
+            </div>
+          </div>
+          <div class="stats">
+            <div class="stat">
+              <strong>3</strong>
+              <span style="color: var(--muted)">メインセクション</span>
+            </div>
+            <div class="stat">
+              <strong>0</strong>
+              <span style="color: var(--muted)">外部依存</span>
+            </div>
+            <div class="stat">
+              <strong>100%</strong>
+              <span style="color: var(--muted)">レスポンシブ</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" style="margin-top: 18px">
+        <h2 class="section-title">主な特徴</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>シンプル構成</h3>
+            <p style="color: var(--muted)">
+              余計なスクリプトはゼロ。静的ファイルだけで完結するため、静的ホスティングにもそのまま対応します。
+            </p>
+          </div>
+          <div class="card">
+            <h3>カスタマイズ容易</h3>
+            <p style="color: var(--muted)">
+              色やフォント、レイアウトをCSS変数とユーティリティで管理。必要な箇所だけ調整するだけで雰囲気を変えられます。
+            </p>
+          </div>
+          <div class="card">
+            <h3>読みやすいタイポグラフィ</h3>
+            <p style="color: var(--muted)">
+              長文でも疲れにくい行間と、モバイルでも見やすいフォントサイズをデフォルト設定しています。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" style="margin-top: 32px">
+        <h2 class="section-title">小さなストーリー</h2>
+        <div class="card">
+          <p style="margin: 0; color: var(--muted)">
+            今日はカレーを食べました。昨日はおでんを食べました。日々のちょっとした出来事も、こうして記録すれば温かな物語になります。ページの文章を差し替えるだけで、あなた自身のストーリーを伝えられます。
+          </p>
+        </div>
+      </section>
+
+      <section id="contact" style="margin-top: 32px">
+        <h2 class="section-title">お問い合わせと次のステップ</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>こんな使い方ができます</h3>
+            <ul class="bullet">
+              <li>
+                <span>1</span>
+                <div>自己紹介サイトとして簡単に公開</div>
+              </li>
+              <li>
+                <span>2</span>
+                <div>小さなプロダクトのランディングページに</div>
+              </li>
+              <li>
+                <span>3</span>
+                <div>チーム内の共有メモやガイドとして</div>
+              </li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>連絡先</h3>
+            <p style="color: var(--muted); margin-bottom: 14px">
+              下記のボタンからサンプルの連絡先にアクセスできます。実際の運用時には自分の連絡手段に置き換えてください。
+            </p>
+            <a class="btn" href="mailto:hello@example.com">メールを送る</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>シンプルサイト — 軽やかなスタートをあなたに。</footer>
+  </body>
+</html>
