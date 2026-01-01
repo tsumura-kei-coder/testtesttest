@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>シンプルサイト</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <span>●</span>
+        シンプルサイト
+      </div>
+      <nav>
+        <a href="#features">特徴</a>
+        <a href="#about">ストーリー</a>
+        <a href="#contact">お問い合わせ</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <div class="badge">ミニマルで使いやすい</div>
+          <h1>必要な情報だけを、丁寧に届けるシンプルなウェブサイト</h1>
+          <p class="lead">
+            このページはサンプルとして作られた、軽くて美しいシングルページサイトです。シンプルな構成なので、個人用のポートフォリオやサービスの紹介ページにもすぐに転用できます。
+          </p>
+          <p class="note-text">
+            更新日: <span id="today">YYYY-MM-DD</span>
+          </p>
+          <div class="actions">
+            <a class="btn" href="#features">特徴を見る</a>
+            <a class="btn ghost" href="#contact">相談する</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="note">
+            <div class="note-icon">✨</div>
+            <div>
+              <strong>好きな色に差し替え可能</strong>
+              <p style="margin: 6px 0 0; color: var(--muted)">
+                CSS変数を変更するだけで雰囲気を簡単に変えられます。ライト/ダークテーマにも自然に対応。
+              </p>
+            </div>
+          </div>
+          <div class="stats">
+            <div class="stat">
+              <strong>3</strong>
+              <span style="color: var(--muted)">メインセクション</span>
+            </div>
+            <div class="stat">
+              <strong>0</strong>
+              <span style="color: var(--muted)">外部依存</span>
+            </div>
+            <div class="stat">
+              <strong>100%</strong>
+              <span style="color: var(--muted)">レスポンシブ</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" style="margin-top: 18px">
+        <h2 class="section-title">主な特徴</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>シンプル構成</h3>
+            <p style="color: var(--muted)">
+              余計なスクリプトはゼロ。静的ファイルだけで完結するため、静的ホスティングにもそのまま対応します。
+            </p>
+          </div>
+          <div class="card">
+            <h3>カスタマイズ容易</h3>
+            <p style="color: var(--muted)">
+              色やフォント、レイアウトをCSS変数とユーティリティで管理。必要な箇所だけ調整するだけで雰囲気を変えられます。
+            </p>
+          </div>
+          <div class="card">
+            <h3>読みやすいタイポグラフィ</h3>
+            <p style="color: var(--muted)">
+              長文でも疲れにくい行間と、モバイルでも見やすいフォントサイズをデフォルト設定しています。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" style="margin-top: 32px">
+        <h2 class="section-title">小さなストーリー</h2>
+        <div class="card">
+          <p style="margin: 0; color: var(--muted)">
+            今日はカレーを食べました。昨日はおでんを食べました。日々のちょっとした出来事も、こうして記録すれば温かな物語になります。ページの文章を差し替えるだけで、あなた自身のストーリーを伝えられます。
+          </p>
+        </div>
+      </section>
+
+      <section id="contact" style="margin-top: 32px">
+        <h2 class="section-title">お問い合わせと次のステップ</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>こんな使い方ができます</h3>
+            <ul class="bullet">
+              <li>
+                <span>1</span>
+                <div>自己紹介サイトとして簡単に公開</div>
+              </li>
+              <li>
+                <span>2</span>
+                <div>小さなプロダクトのランディングページに</div>
+              </li>
+              <li>
+                <span>3</span>
+                <div>チーム内の共有メモやガイドとして</div>
+              </li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>連絡先</h3>
+            <p style="color: var(--muted); margin-bottom: 14px">
+              下記のボタンからサンプルの連絡先にアクセスできます。実際の運用時には自分の連絡手段に置き換えてください。
+            </p>
+            <a class="btn" href="mailto:hello@example.com">メールを送る</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>シンプルサイト — 軽やかなスタートをあなたに。</footer>
+    <script src="./script.js"></script>
+  </body>
+</html>
